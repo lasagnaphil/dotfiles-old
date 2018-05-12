@@ -1,0 +1,3 @@
+# Dotfiles... dotfiles... more dotfiles...
+
+Currently using just plain Git to manage all of these. (https://wiki.archlinux.org/index.php/Dotfiles)
