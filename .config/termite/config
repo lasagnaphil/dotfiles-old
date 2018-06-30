@@ -1,5 +1,6 @@
 [options]
-font = TamzenForPowerline 12
+# font = TamzenForPowerline 12
+font = Hack 10
 scroll_on_output = false
 scroll_on_keystroke = true
 audible_bell = false

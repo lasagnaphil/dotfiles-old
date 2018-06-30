@@ -24,6 +24,11 @@ Plug 'autozimu/LanguageClient-neovim', {
 
 Plug 'roxma/nvim-completion-manager'
 
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 Plug 'vim-pandoc/vim-pandoc', { 'for': 'markdown' }
@@ -42,7 +47,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 
-Plug 'lervag/vimtex'
+Plug 'donRaphaco/neotex', { 'for': 'tex' }
+
 Plug 'lluchs/vim-wren', { 'for': 'wren' }
 
 call plug#end()
@@ -132,8 +138,13 @@ set mouse=a
 " LanguageClient
 set hidden
 let g:LanguageClient_serverCommands = {
+\ }
+let g:LanguageClient_loadSettings = 1
+let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+    \ 'cpp': ['cquery', '--log-file=/tmp/cq.log']
     \ }
+
 let g:LanguageClient_autoStart = 1
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
@@ -165,9 +176,14 @@ let g:NumberToggleTrigger="<F3>"
 " deoplete
 let g:deoplete#enable_at_startup = 1
 
+" neosnippet
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
 " OCaml Merlin integration
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
+" let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+" execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 " fzf.vim
 map <C-p> :Files<CR>
@@ -211,4 +227,10 @@ endfor
 
 " Vimtex
 let g:vimtex_view_method = 'zathura'
+let g:latex_view_general_viewer='zathura'
 let g:vimtex_latexmk_options = '-pdf -shell-escape -verbose -file-line-error -synctex=1 -interaction=nonstopmode'
+
+" Neotex
+let g:neotex_enabled = 2
+let g:neotex_pdflatex_alternative = 'xelatex'
+let g:tex_flavor = 'latex'

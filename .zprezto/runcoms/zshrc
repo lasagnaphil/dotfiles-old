@@ -41,9 +41,6 @@ ocamlp() {
 autoload -Uz zmv
 autoload -Uz zcp
 
-# marp
-alias marp=~/Programs/marp/Marp
-
 # env for identifying if this computer is Arch Linux
 export ARCHLINUX=1
 
@@ -56,6 +53,10 @@ function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
 # default terminal
 export TERMINAL=termite
 
+# default editor
+export EDITOR='nvim'
+export VISUAL='nvim'
+
 # RVM settings
 eval "$(rbenv init -)"
 
@@ -67,3 +68,13 @@ function xephyr() { Xephyr :5 & sleep 1 ; DISPLAY=:5 awesome }
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval $(thefuck --alias)
+
+# perl things
+PATH="/home/lasagnaphil/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/lasagnaphil/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/lasagnaphil/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/lasagnaphil/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/lasagnaphil/perl5"; export PERL_MM_OPT;
+
+# nake (Nim)
+export PATH="$HOME/.nimble/bin:$PATH"
