@@ -67,8 +67,6 @@ function xephyr() { Xephyr :5 & sleep 1 ; DISPLAY=:5 awesome }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval $(thefuck --alias)
-
 # perl things
 PATH="/home/lasagnaphil/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/lasagnaphil/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
