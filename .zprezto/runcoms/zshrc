@@ -76,3 +76,11 @@ PERL_MM_OPT="INSTALL_BASE=/home/lasagnaphil/perl5"; export PERL_MM_OPT;
 
 # nake (Nim)
 export PATH="$HOME/.nimble/bin:$PATH"
+
+eval $(thefuck --alias)
+
+# Vulkan stuff
+export VULKAN_SDK=~/vulkan/1.1.82.0/x86_64
+export PATH=$VULKAN_SDK/bin:$PATH
+export LD_LIBRARY_PATH=$VULKAN_SDK/lib:$LD_LIBRARY_PATH
+export VK_LAYER_PATH=$VULKAN_SDK/etc/explicit_layer.d
